@@ -1,0 +1,96 @@
+/***************** 1.Nested selectors ****************/
+
+ul {
+    margin: 0;
+    padding: 0;
+    
+    list-style: none;
+    li {
+        
+        a {
+            color: red;
+            &:hover {
+                color: blue;
+            }
+        }
+    }
+}
+
+/*****************   2.use variable ****************/
+$black-color: #444444;
+$blue-color: #1e73be;
+ 
+body {
+    color: $black-color;
+}
+a {
+    color: $blue-color;
+}
+
+/************  3.use mixin for group css decoration ****************/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box { 
+  @include border-radius(10px); /* ส่งค่า 10px */
+}
+.box-large { 
+  @include border-radius(20px); /* ส่งค่า 20px */
+}
+
+/*  use operator +, -, *, /, % for calculation  */
+@mixin center($width, $height){
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -($height/2)+px;
+  margin-left: -($width/2)+px;
+}
+.box{
+  width: 200px;
+  height: 100px;
+  background-color: $black-color;
+  @include center(200, 100);
+}
+
+
+/*  use compass mixin  */
+/* import compass เข้ามาก่อน */
+@import "compass";
+ 
+/* ทดลองใช้ Mixin สำเร็จรูปของ Compass */
+.box {
+    @include box-sizing(border-box);
+    @include box-shadow(blue 2px 2px 10px);
+}
+
+
+/************  3.share style with extend ****************/
+/* extend look like mixin but no parameter    */
+
+/* สไตล์กลางๆ ของ alert */
+.alert{
+  border: 1px solid black;
+  padding: 5px 10px;
+  background: yellow;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/* สไตล์เฉพาะทางของ alert แบบต่างๆ */
+.alert-success{
+  @extend .alert; /* ดึงสไตล์กลางมาใช้ */
+  background: green;
+}
+.alert-warning{
+  @extend .alert; /* ดึงสไตล์กลางมาใช้ */
+  background: orange;
+}
+.alert-error{
+  @extend .alert; /* ดึงสไตล์กลางมาใช้ */
+  background: red;
+}

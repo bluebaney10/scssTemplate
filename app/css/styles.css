@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/***************** 1.Nested selectors ****************/
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  ul li a {
+    color: red; }
+    ul li a:hover {
+      color: blue; }
+
+/*****************   2.use variable ****************/
+body {
+  color: #444444; }
+
+a {
+  color: #1e73be; }
+
+/************  3.use mixin for group css decoration ****************/
+.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  /* ส่งค่า 10px */ }
+
+.box-large {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  /* ส่งค่า 20px */ }
+
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: #444444;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px; }
