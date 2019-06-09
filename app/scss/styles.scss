@@ -94,3 +94,35 @@ a {
   @extend .alert; /* ดึงสไตล์กลางมาใช้ */
   background: red;
 }
+
+
+/* bem css   */
+.header {
+  &__search {
+    /* .header__search */
+  }
+  &__login {
+    /* .header__login */
+  }
+}
+ 
+.form {
+  &--search {
+    /* .form--search */
+    &__submit {
+      /* .form--search__submit */
+    }
+  }
+  &--login {
+    /* .form--login */
+    &__submit {
+      /* .form--login__submit */
+    }
+  }
+  &__input {
+    /* .form__input */
+    &--submit {
+      /* .form__input--submit */
+    }
+  } 
+}

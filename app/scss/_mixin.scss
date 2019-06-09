@@ -1,0 +1,286 @@
+
+/********  global layout  *********/
+.text-right {
+    text-align: right;
+}
+.text-left {text-align: left;}
+.text-center {
+    text-align: center;
+}
+
+/********  global display  *********/
+.display-pc{display:block;}
+.display-mobile{ display:none;}
+
+
+.display-960 {
+    display: block;
+}
+.display-375 {
+    display: none;
+}
+
+.hide-obj{ display:none;}
+
+.layer-fade {
+    position: fixed;
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+}
+
+
+.panel-custom{ margin:0px 25px;}
+
+
+
+//extend   @extend %box-child;
+/************* button ****************/
+%bt{
+    cursor:pointer;
+}
+
+button {
+    border: solid 1px #d4d4d4;
+    width: 144px;
+    height: 38px;
+    color: #000000;
+    font-size: 16px;
+    background-color: #ffbe2e;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+
+
+/************* font ****************/
+
+%font-head {
+    font-size: 52px;
+    line-height: 50px;
+    font-weight: 500;
+}
+
+%section-topic {
+    font-family: 'robotoblack';
+    font-size: 36px;
+    color: #2c2c2c;
+}
+
+%section-desc {
+    font-family: 'robotoregular';
+    font-size: 16px;
+    color: #777777;
+}
+
+
+
+@mixin TruncateText($num) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: $num;
+}
+
+
+
+
+
+/************* box ****************/
+/************* create box ****************/
+  //mixin  @include transform(rotate(30deg));
+    @mixin BoxTag($width,$hight) {
+        width: $width;
+        height: $hight;
+        border-radius: 5px;
+    }
+
+/************* box parent-child ****************/
+    %box-holder {
+        position:relative;
+        display: inline-block;
+        width:100%;
+    }
+    
+    %box-child {
+        display: inline-block;
+        float: left;
+    }
+
+/************* box grid ****************/
+    @mixin BlockGrid($num) {
+
+        li {
+            width: 100%/$num;
+            list-style: none;
+            display: block;
+            height: auto;
+            float: left;
+            padding: 27px 15px 15px 15px;
+    
+            &li:nth-of-type(1n) {
+                clear: none;
+            }
+    
+            &li:nth-of-type(4n+1) {
+                clear: both;
+            }
+        }
+    }
+       
+/************* box position ****************/
+%absolute-center-center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+%flexbox-centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+%absolute-center {
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/************* iamge ****************/
+%img-cover {
+    object-position: center center;
+    object-fit: cover;
+    width: 100%;
+}
+
+.flip-img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.flip90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+
+/************* effect ****************/
+
+%shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+    box-shadow: 0px 3px 5px 2px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+.txt-shadow {
+    text-shadow: 1px 1px #010101;
+}
+
+
+
+/************* video ****************/
+.vid_frame {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}
+
+.flex-video {
+    position: relative;
+    padding-top: 3.38889rem;
+    padding-bottom: 50%;
+    height: 0;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.flex-video.widescreen {
+    padding-bottom: 56.34%;
+}
+
+.flex-video.vimeo {
+    padding-top: 0;
+}
+
+.flex-video iframe,
+.flex-video object,
+.flex-video embed,
+.flex-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*height: 241px;*/
+}
+
+
+/************* form ****************/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 14px;
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+    background-color: #ffbe2e;
+    color: #6f6f6f;
+    height: 35px;
+}
+
+@media screen and (max-width:$tablet-size) {
+
+    main {
+      
+        background-color: #fddf0a;
+    }
+
+    .panel-custom {
+        margin: 0px 0px;
+    }
+
+
+    .display-pc {
+        display: none;
+    }
+
+    .display-mobile {
+        display: block;
+    }
+
+}
+
+
+@media screen and (max-width:$mobile-size) {
+
+    
+    .display-960 {
+        display: none;
+    }
+
+    .display-375 {
+        display: block;
+    }
+}
