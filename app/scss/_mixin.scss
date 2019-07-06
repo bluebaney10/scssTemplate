@@ -53,6 +53,16 @@ button {
     background-color: #ffbe2e;
     border-radius: 5px;
     margin: 20px auto;
+    
+      -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    &:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    
 }
 
 
@@ -122,15 +132,24 @@ button {
             float: left;
             padding: 27px 15px 15px 15px;
     
-            &li:nth-of-type(1n) {
+            &:nth-of-type(1n) {
                 clear: none;
             }
     
-            &li:nth-of-type(4n+1) {
+            &:nth-of-type(4n+1) {
                 clear: both;
             }
         }
     }
+
+  div:not(.sub-sidebar) {
+                    padding-top: 25px;
+                    color: #595959;
+
+                    &:hover {
+                        color: #b85a47;
+                    }
+                }
        
 /************* box position ****************/
 %absolute-center-center {
